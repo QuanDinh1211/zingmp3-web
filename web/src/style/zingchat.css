@@ -1,0 +1,46 @@
+.zingchat-wrapper .tops-week {
+  width: 100%;
+  height: 500px;
+  margin-top: 50px;
+}
+.zingchat-wrapper .tops-week .tops-list {
+  margin-top: 15px;
+}
+.zingchat-wrapper .tops-week .tops-list .item-top {
+  width: 100%;
+  height: 450px;
+  background-color: #2D223F;
+  border-radius: 20px;
+}
+.zingchat-wrapper .tops-week .tops-list .item-top .top-title {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 10px;
+}
+.zingchat-wrapper .tops-week .tops-list .item-top .top-title h2 {
+  color: #fff;
+  font-weight: 700;
+}
+.zingchat-wrapper .tops-week .tops-list .item-top .top-title i {
+  margin-left: 15px;
+  color: #fff;
+  padding: 12px;
+  background-color: #7200A1;
+  border-radius: 50%;
+}
+.zingchat-wrapper .tops-week .tops-list .item-top .show-all-topic {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.zingchat-wrapper .tops-week .tops-list .item-top .show-all-topic .btn-show-topic {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  padding: 10px 20px;
+  border: 1px solid #fff;
+  border-radius: 30px;
+}/*# sourceMappingURL=zingchat.css.map */

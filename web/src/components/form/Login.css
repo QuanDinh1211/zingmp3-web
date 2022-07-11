@@ -1,0 +1,80 @@
+.login-background {
+  height: 100vh;
+  padding-top: 10%;
+  background: linear-gradient(135deg, rgb(34, 193, 195) 0%, rgb(253, 187, 45) 100%);
+}
+.login-background .login-container {
+  width: 400px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.login-background .login-container .login-content {
+  padding: 15px;
+}
+.login-background .login-container .login-content .login-text {
+  font-weight: 600;
+  font-size: 24px;
+  padding: 10px;
+  text-align: center;
+}
+.login-background .login-container .login-content .login-input {
+  margin-top: 10px;
+}
+.login-background .login-container .login-content .login-input .form-password {
+  display: flex;
+  position: relative;
+}
+.login-background .login-container .login-content .login-input .form-password .eye-password {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.login-background .login-container .login-content .btn-login {
+  width: 100%;
+  margin-top: 15px;
+  height: 35px;
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  background: linear-gradient(135deg, rgb(34, 193, 195) 0%, rgb(253, 187, 45) 100%);
+}
+.login-background .login-container .login-content .forgot-password {
+  font-size: 12px;
+  color: red;
+}
+.login-background .login-container .login-content .social-login {
+  display: flex;
+  justify-content: center;
+}
+.login-background .login-container .login-content .social-login .google {
+  width: 45px;
+  height: 45px;
+  font-size: 30px;
+  color: #fff;
+  border-radius: 50%;
+  background-color: #dc4e41;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+.login-background .login-container .login-content .social-login .facebook {
+  width: 45px;
+  height: 45px;
+  font-size: 30px;
+  color: #fff;
+  border-radius: 50%;
+  background-color: #3b5998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-background .login-container .login-content .err-message {
+  color: red;
+}/*# sourceMappingURL=Login.css.map */

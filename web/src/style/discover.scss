@@ -1,0 +1,25 @@
+.discover-wrapper {
+    margin-top: -100px;
+
+    #slide {
+        .carousel-inner {
+            .carousel-item {
+
+                img+img {
+                    margin-left: 100px
+                }
+
+                img {
+                    border-radius: 10px;
+                    width: 400px;
+                    height: 200px;
+                    margin-left: 150px;
+                }
+            }
+        }
+    }
+
+    .discover-item {
+        margin-top: 100px;
+    }
+}

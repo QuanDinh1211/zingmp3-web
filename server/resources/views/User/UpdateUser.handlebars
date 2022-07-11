@@ -1,0 +1,18 @@
+<h2>Cập nhật User</h2>
+<div class="mt-4">
+    <form method="POST" action="/user/update/{{userUpdate._id}}?_method=PUT" enctype="multipart/form-data">
+        <div class="mb-3 mt-4">
+            <label for="name" class="form-label">Name User</label>
+            <input type="text" name="name" value="{{userUpdate.name}}" class="form-control">
+        </div>
+        <div class="mb-3 mt-4">
+            <label for="avatar" class="form-label">Avatar User</label>
+            <input type="file" name="avatar" class=" form-control">
+        </div>
+        <div class="mb-3 mt-4">
+            <label for="description" class="form-label">User description</label>
+            <input type="text" name="description" value="{{userUpdate.description}}" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary mt-4">Cập nhật người dùng</button>
+    </form>
+</div>

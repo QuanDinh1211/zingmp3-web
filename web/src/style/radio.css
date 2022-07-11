@@ -1,0 +1,69 @@
+.radio-wrapper .list-radio {
+  margin-top: 20px;
+}
+.radio-wrapper .list-radio .radio-item {
+  width: 100%;
+  height: 90px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  position: relative;
+}
+.radio-wrapper .list-radio .radio-item .radio-avatar {
+  width: 20%;
+  height: 20%;
+  position: relative;
+}
+.radio-wrapper .list-radio .radio-item .radio-avatar img {
+  border-radius: 5px;
+  width: 70px;
+  height: 70px;
+}
+.radio-wrapper .list-radio .radio-item .radio-avatar .avartar-hover {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  display: none;
+}
+.radio-wrapper .list-radio .radio-item .radio-avatar .avartar-hover i {
+  color: #fff;
+  font-size: 25px;
+}
+.radio-wrapper .list-radio .radio-item .radio-name {
+  margin-left: 4%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+.radio-wrapper .list-radio .radio-item .radio-name span {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: #84808B;
+}
+.radio-wrapper .list-radio .radio-item .radio-name span.name {
+  color: #fff;
+}
+.radio-wrapper .list-radio .radio-item .radio-hover {
+  color: #fff;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: none;
+}
+.radio-wrapper .list-radio .radio-item .radio-hover i {
+  margin-right: 20px;
+}
+.radio-wrapper .list-radio .radio-item:hover {
+  background-color: #2F2739;
+}
+.radio-wrapper .list-radio .radio-item:hover .radio-hover {
+  display: flex;
+}
+.radio-wrapper .list-radio .radio-item:hover img {
+  opacity: 0.8;
+}
+.radio-wrapper .list-radio .radio-item:hover .avartar-hover {
+  display: flex;
+}/*# sourceMappingURL=radio.css.map */

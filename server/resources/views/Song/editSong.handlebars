@@ -1,0 +1,15 @@
+<h2>Cập nhật Song</h2>
+<div class="mt-4">
+    <form method="POST" action="/song/update/{{song._id}}?_method=PUT" enctype="multipart/form-data">
+        <div class="mb-3 mt-4">
+            <label for="name" class="form-label">Name Song</label>
+            <input type="text" name="name" value="{{song.name}}" class="form-control">
+        </div>
+        <div class="mb-3 mt-4">
+            <label for="mp3" class="form-label">Mp3 Song</label>
+            <input type="file" name="mp3" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4">Cập nhật</button>
+    </form>
+</div>

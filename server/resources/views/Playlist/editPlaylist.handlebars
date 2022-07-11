@@ -1,0 +1,22 @@
+<h2>Cập nhật Playlist</h2>
+<div class="mt-4">
+    <form method="POST" action="/playlist/update/{{playlist._id}}?_method=PUT" enctype="multipart/form-data">
+        <div class="mb-3 mt-4">
+            <label for="name" class="form-label">Name Playlist</label>
+            <input type="text" name="name" class="form-control" value="{{playlist.name}}">
+        </div>
+        <div class="mb-3 mt-4">
+            <label for="avatar" class="form-label">Avatar Playlist</label>
+            <input type="file" name="avatar" class="form-control">
+        </div>
+        <div class="mb-3 mt-4">
+            <label for="author" class="form-label">author</label>
+            <input type="text" name="author" class="form-control" value="{{playlist.author}}">
+        </div>
+        <div class="mb-3 mt-4">
+            <label for="description" class="form-label">Playlist description</label>
+            <input type="text" name="description" class="form-control" value="{{playlist.description}}">
+        </div>
+        <button type="submit" class="btn btn-primary mt-4">Cập nhật</button>
+    </form>
+</div>

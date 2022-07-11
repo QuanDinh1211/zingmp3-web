@@ -1,0 +1,5 @@
+export const apiurl = 'http://localhost:5000/api'
+export const LOCAL_STORAGE_TOCKEN_NAME = 'zingmp3'
+export const urlimg = 'http://localhost:5000/img'
+export const urlcontent = 'http://localhost:5000/storyContent'
+export const urlmp3 = 'http://localhost:5000/mp3'

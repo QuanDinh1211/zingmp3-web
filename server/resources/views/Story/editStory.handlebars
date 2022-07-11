@@ -1,0 +1,15 @@
+<h2>Cập nhật Story</h2>
+<div class="mt-4">
+    <form method="POST" action="/story/update/{{story._id}}?_method=PUT" enctype="multipart/form-data">
+        <div class="mb-3 mt-4">
+            <label for="description" class="form-label">description story</label>
+            <input type="text" name="description" value="{{story.description}}" class="form-control">
+        </div>
+        <div class="mb-3 mt-4">
+            <label for="content" class="form-label">content story</label>
+            <input type="file" name="content" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4">Cập nhật</button>
+    </form>
+</div>

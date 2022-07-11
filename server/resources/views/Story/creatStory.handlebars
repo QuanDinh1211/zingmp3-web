@@ -1,0 +1,15 @@
+<h2>Thêm mới Story</h2>
+<div class="mt-4">
+    <form method="POST" action="/story/createStory" enctype="multipart/form-data">
+        <div class="mb-3 mt-4">
+            <label for="description" class="form-label">description</label>
+            <input type="text" name="description" class="form-control">
+        </div>
+        <div class="mb-3 mt-4">
+            <label for="content" class="form-label">content</label>
+            <input type="file" name="content" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4">Thêm Story</button>
+    </form>
+</div>

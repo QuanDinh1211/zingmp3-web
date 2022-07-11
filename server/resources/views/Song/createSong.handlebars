@@ -1,0 +1,15 @@
+<h2>Thêm mới Song</h2>
+<div class="mt-4">
+    <form method="POST" action="/song/createSong" enctype="multipart/form-data">
+        <div class="mb-3 mt-4">
+            <label for="name" class="form-label">Name Song</label>
+            <input type="text" name="name" class="form-control">
+        </div>
+        <div class="mb-3 mt-4">
+            <label for="mp3" class="form-label">Mp3 Song</label>
+            <input type="file" name="mp3" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4">Thêm Song</button>
+    </form>
+</div>

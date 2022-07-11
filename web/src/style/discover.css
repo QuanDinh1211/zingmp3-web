@@ -1,0 +1,15 @@
+.discover-wrapper {
+  margin-top: -100px;
+}
+.discover-wrapper #slide .carousel-inner .carousel-item img + img {
+  margin-left: 100px;
+}
+.discover-wrapper #slide .carousel-inner .carousel-item img {
+  border-radius: 10px;
+  width: 400px;
+  height: 200px;
+  margin-left: 150px;
+}
+.discover-wrapper .discover-item {
+  margin-top: 100px;
+}/*# sourceMappingURL=discover.css.map */

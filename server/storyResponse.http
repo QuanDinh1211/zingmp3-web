@@ -1,0 +1,38 @@
+GET http://localhost:5000/api/story/getStory
+
+
+#### library
+
+###
+POST http://localhost:5000/api/library/createLibrary
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmM5M2Y3NTQxZTlkZjM4NTM1YjliMjQiLCJpYXQiOjE2NTczODAwMDB9.6JSvieemoaMPcimnPuktXo3_sWg0GBQXmNUlNlzhtLg
+Content-Type: application/json
+
+{
+    "user": "62c93f7541e9df38535b9b24",
+    "product": "625f136c54e80af6fec95c68",
+    "category": "ALBUM"
+}
+
+
+###
+GET http://localhost:5000/api/library/getLibrary
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmM5M2Y3NTQxZTlkZjM4NTM1YjliMjQiLCJpYXQiOjE2NTczODAwMDB9.6JSvieemoaMPcimnPuktXo3_sWg0GBQXmNUlNlzhtLg
+
+###
+GET http://localhost:5000/api/library/getLibrary/album
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmM5M2Y3NTQxZTlkZjM4NTM1YjliMjQiLCJpYXQiOjE2NTczODAwMDB9.6JSvieemoaMPcimnPuktXo3_sWg0GBQXmNUlNlzhtLg
+
+###
+GET http://localhost:5000/api/library/getLibrary/playlist
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmM5M2Y3NTQxZTlkZjM4NTM1YjliMjQiLCJpYXQiOjE2NTczODAwMDB9.6JSvieemoaMPcimnPuktXo3_sWg0GBQXmNUlNlzhtLg
+
+###
+GET http://localhost:5000/api/library/getLibrary/song
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmM5M2Y3NTQxZTlkZjM4NTM1YjliMjQiLCJpYXQiOjE2NTczODAwMDB9.6JSvieemoaMPcimnPuktXo3_sWg0GBQXmNUlNlzhtLg
+
+
+
+###
+DELETE  http://localhost:5000/api/library/627807774bce4a0808e0286c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmM5M2Y3NTQxZTlkZjM4NTM1YjliMjQiLCJpYXQiOjE2NTc0NDA4Mzl9.7kZCDdgXBDTMQ6thwbPBXci88IhtMC85dm_NEjbrez8

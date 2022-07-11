@@ -1,0 +1,47 @@
+<table class="table mt-4">
+    <thead class="thead-dark">
+        <tr>
+            <th>Song Name</th>
+            <th>mp3</th>
+            <th>avatar</th>
+            <th>Views</th>
+            <th>author</th>
+            <th>actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each listSong}}
+        <tr>
+            <td><a href="/user/{{this.slug}}">{{this.name}}</a></td>
+            <td>{{this.mp3}}</td>
+            <td>{{this.album.avatar}}</td>
+            <td>{{this.views}}</td>
+            <td>{{this.album.author}}</td>
+            <td>
+                <button type="button" class="btn btn-warning"><a href="/song/edit/{{this._id}}">Sửa</a></button>
+                <button type="button" id="{{this._id}}" class="btn btn-danger btn-delete">Xóa</button>
+                <button type="button" class="btn btn-success"><a href="/song/likes/{{this._id}}">likes</a></button>
+                <button type="button" class="btn btn-secondary"><a
+                        href="/song/unlikes/{{this._id}}">unlikes</a></button>
+
+            </td>
+
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<form name='delete_from' method="POST"></form>
+
+<script>
+    const courseList = document.querySelector('.table')
+    const deleteFrom = document.delete_from
+
+    courseList.onclick = function (e) {
+        const btnDelete = e.target.closest('.btn-delete')
+        if (btnDelete) {
+            deleteFrom.action = '/song/' + btnDelete.id + '?_method=DELETE'
+            deleteFrom.submit()
+        }
+    }
+</script>

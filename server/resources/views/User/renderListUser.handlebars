@@ -1,0 +1,45 @@
+<table class="table mt-4">
+    <thead class="thead-dark">
+        <tr>
+            <th>UserName</th>
+            <th>avatar</th>
+            <th>description</th>
+            <th>followers</th>
+            <th>actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each listUser}}
+        <tr>
+            <td><a href="/user/{{this.slug}}">{{this.name}}</a></td>
+            <td>{{this.avatar}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.followers}}</td>
+            <td>
+                <button type="button" class="btn btn-warning"><a href="/user/edit/{{this._id}}">Sửa</a></button>
+                <button type="button" id="{{this._id}}" class="btn btn-danger btn-delete">Xóa</button>
+                <button type="button" class="btn btn-success"><a href="/user/follow/{{this._id}}">follow</a></button>
+                <button type="button" class="btn btn-secondary"><a
+                        href="/user/unfollow/{{this._id}}">unFollow</a></button>
+
+            </td>
+
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<form name='delete_from' method="POST"></form>
+
+<script>
+    const courseList = document.querySelector('.table')
+    const deleteFrom = document.delete_from
+
+    courseList.onclick = function (e) {
+        const btnDelete = e.target.closest('.btn-delete')
+        if (btnDelete) {
+            deleteFrom.action = '/user/' + btnDelete.id + '?_method=DELETE'
+            deleteFrom.submit()
+        }
+    }
+</script>

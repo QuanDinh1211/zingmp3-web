@@ -1,0 +1,19 @@
+
+POST http://localhost:5000/api/album/createAlbum
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVmMGJjYjFlMzA5ZGVkZTEyNWMzZTAiLCJpYXQiOjE2NTA0NjE3Mzd9.vPj2BGyPfjuyvVNnbOHEjmOWga4LTgEvE1z9Cw1Aevg
+
+{
+    "name": "Có ai ở đây không?",
+    "description": "Bài hát mới",
+    "author": "Quan,Quang",
+    "avatar": "img.img"
+}
+
+
+###
+GET http://localhost:5000/api/album/likes/625f136c54e80af6fec95c68
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVmMGJjYjFlMzA5ZGVkZTEyNWMzZTAiLCJpYXQiOjE2NTA0NzE5OTB9.E6zZC1zw-orHtQU189VFLRAWYOaNfyBmWRN4uoPlYXQ
+
+###
+GET http://localhost:5000/api/album/625f136c54e80af6fec95c68
