@@ -50,6 +50,15 @@ class LibraryController {
         })
     }
 
+    getLibraryStory = async (req, res) => {
+        const listLibrary = await handleGetListLibrary({ user: req.userId, category: 'STORY' }, res)
+        return res.json({
+            success: true,
+            message: "List library successfully!",
+            library: listLibrary
+        })
+    }
+
 
     createLibrary = async (req, res) => {
         const userId = req.userId

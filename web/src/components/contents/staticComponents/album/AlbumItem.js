@@ -5,7 +5,7 @@ import { urlimg } from '../../../../store/contexts/consts'
 import { AlbumContext } from '../../../../store/contexts/albumContext'
 import LikeIcon from '../../../../utils/actitonLikeProduct'
 
-const AlbumItem = ({ name, avatar, author, idAlbum, like }) => {
+const AlbumItem = ({ name, avatar, author, idAlbum }) => {
 
     const { setAlbum } = useContext(AlbumContext)
 
@@ -24,7 +24,7 @@ const AlbumItem = ({ name, avatar, author, idAlbum, like }) => {
             <div className="avatar">
                 <img src={`${urlimg}/${avatar}`} alt='' />
                 <div className="hover-avatar">
-                    <LikeIcon type='album' idProduct={idAlbum} love={like} />
+                    <LikeIcon type='album' idProduct={idAlbum} />
                     <i className="play far fa-play-circle" onClick={handleClickAlbumItem} />
                     <i className="fas fa-ellipsis-h" />
                 </div>

@@ -6,12 +6,12 @@ const Topweek = () => {
             <div className="col-4">
                 <TopWeekItem />
             </div>
-            <div className="col-4">
+            {/* <div className="col-4">
                 <TopWeekItem />
             </div>
             <div className="col-4">
                 <TopWeekItem />
-            </div>
+            </div> */}
         </div>
     )
 }

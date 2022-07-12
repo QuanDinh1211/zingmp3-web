@@ -70,6 +70,34 @@ const StoryContextProvider = ({ children }) => {
         }
     }
 
+    // action
+
+    const likeStory = async (idStory) => {
+        try {
+            const response = await axios.get(`${apiurl}/story/likes/${idStory}`)
+            if (response.data.success) {
+                await getStory()
+                return response.data
+            }
+        } catch (error) {
+            return { success: false, message: error.message }
+        }
+    }
+
+    const unLikeStory = async (idStory) => {
+        try {
+            const response = await axios.get(`${apiurl}/story/unlikes/${idStory}`)
+            if (response.data.success) {
+                await getStory()
+                return response.data
+            }
+        } catch (error) {
+            return { success: false, message: error.message }
+        }
+    }
+
+    // action
+
     // const setAlbum = async (idAlbum) => {
     //     try {
     //         const response = await axios.get(`${apiurl}/album/${idAlbum}`)
@@ -82,7 +110,7 @@ const StoryContextProvider = ({ children }) => {
     //     }
     // }
 
-    const StoryContextData = { storyState, createStory, showAddStoryModal, setShowAddStoryModal }
+    const StoryContextData = { storyState, createStory, showAddStoryModal, setShowAddStoryModal, likeStory, unLikeStory }
 
     return (
         <StoryContext.Provider value={StoryContextData}>

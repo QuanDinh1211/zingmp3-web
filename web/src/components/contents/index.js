@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { urlimg } from '../../store/contexts/consts'
 
 import { UserContext } from '../../store/contexts/userContext'
@@ -13,6 +13,7 @@ import Radio from './radio'
 import ZingChat from './zingchat'
 import Category from './category'
 import Follow from './follow'
+import Topik from './topik'
 import RenderAuthor from './author'
 import AddPlaylistModal from '../form/AddPlaylistModal'
 import AddAlbumModal from '../form/AddAlbumModal'
@@ -22,6 +23,7 @@ import AlbumLibarry from './only/AlbumLibarry'
 import AuthorLibrary from './only/AuthorLibrary'
 import PlaylistLibrary from './only/PlaylistLibrary'
 import SongLibrary from './only/SongLibrary'
+import RenderSeach from './staticComponents/renderSeach/RenderSeach'
 
 
 const Content = () => {
@@ -54,9 +56,27 @@ const Content = () => {
         }
     }
 
+    const [showRenderSech, setShowRenderSech] = useState(false)
+    const [seachDataInput, setSeachDataInput] = useState('')
+
+
+    const handleOnclickContent = (event) => {
+        let result = event.target.closest('.header-seach')
+        if (result) {
+            setShowRenderSech(true)
+        } else {
+            setShowRenderSech(false)
+            setSeachDataInput('')
+        }
+    }
+
+    const handleOnChangeSearch = (event) => {
+        setSeachDataInput(event.target.value)
+    }
+
 
     return (
-        <div className="content">
+        <div className="content" onClick={handleOnclickContent}>
             <div className="content-header">
                 <div className="header-body">
                     <div className="header-left">
@@ -66,7 +86,8 @@ const Content = () => {
                         </div>
                         <div className="header-seach">
                             <i className="fas fa-search" />
-                            <input type="text" placeholder="Nhập tên bài hát, nghệ sĩ hoặc MV..." />
+                            <input type="text" onChange={handleOnChangeSearch} value={seachDataInput} placeholder="Nhập tên bài hát, nghệ sĩ hoặc MV..." />
+                            {showRenderSech && <RenderSeach name={seachDataInput} />}
                         </div>
                     </div>
                     <div className="header-right">
@@ -103,6 +124,7 @@ const Content = () => {
                     <Route exact path='/radio' element={<Radio />} />
                     <Route exact path='/category' element={<Category />} />
                     <Route exact path='/follow' element={<Follow />} />
+                    <Route exact path='/topik' element={<Topik />} />
                     <Route exact path='/album/:albumId' element={<RenderAlbum />} />
                     <Route exact path='/author/:flug' element={<RenderAuthor />} />
                     <Route exact path='/playlist/:playlistId' element={<RenderPlaylist />} />

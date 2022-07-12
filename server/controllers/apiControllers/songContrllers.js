@@ -52,6 +52,18 @@ class SongController {
         }
     }
 
+    getSongName = async (req, res) => {
+        const songName = req.params.songName
+        const listSong = await handleGetOneSong({ 'name': new RegExp(songName, 'i') })
+        if (listSong) {
+            return res.json({
+                success: true,
+                message: "Get listSong successfully!",
+                song: listSong
+            })
+        }
+    }
+
     createSong = async (req, res) => {
 
         const userId = req.userId

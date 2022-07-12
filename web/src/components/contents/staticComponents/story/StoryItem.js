@@ -1,10 +1,11 @@
 import { urlimg } from '../../../../store/contexts/consts'
 import { urlcontent } from '../../../../store/contexts/consts'
 import { FollowUser, UnFollowUser } from '../../../../utils/actionFollowUser'
+import LikeIcon from '../../../../utils/actitonLikeProduct'
 
 
 
-const StoryItem = ({ description, content, likes, user, createdAt, loveUser }) => {
+const StoryItem = ({ description, content, likes, id, user, createdAt, loveUser }) => {
 
     let { name, avatar } = user
 
@@ -56,12 +57,12 @@ const StoryItem = ({ description, content, likes, user, createdAt, loveUser }) =
             </div>
             <div className="body-footer">
                 <div className="heat">
-                    <i className="far fa-heart" />
-                    <span>{likes}</span>
+                    <LikeIcon type='story' idProduct={id} />
+                    <span className="mgl-6">{likes}</span>
                 </div>
                 <div>
                     <i className="far fa-comment-dots" />
-                    <span>0</span>
+                    <span className="mgl-6">0</span>
                 </div>
             </div>
         </div>

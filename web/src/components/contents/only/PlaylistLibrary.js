@@ -22,7 +22,7 @@ const PlaylistLibrary = () => {
                 if (index < 6) {
                     return (
                         <div key={index} className="col-2">
-                            <PlaylistItem name={name} avatar={avatar} idPlaylist={_id} like author={author} />
+                            <PlaylistItem name={name} avatar={avatar} idPlaylist={_id} author={author} />
                         </div>
                     )
                 }

@@ -233,12 +233,13 @@ html {
 
                 .header-seach {
                     margin-left: 20px;
-                    width: 40vw;
+                    width: 50vw;
                     padding: 8px;
                     display: flex;
                     align-items: center;
                     background-color: #2F2739;
                     border-radius: 30px;
+                    position: relative;
 
                     i {
                         color: #fff;

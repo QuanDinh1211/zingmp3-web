@@ -5,14 +5,21 @@ import { AlbumContext } from '../store/contexts/albumContext'
 import { UserContext } from '../store/contexts/userContext'
 import { PlaylistContext } from '../store/contexts/playlistContext'
 import { SongContext } from '../store/contexts/songContext'
+import { StoryContext } from '../store/contexts/storyContext'
 
-const LikeIcon = ({ type, idProduct, love }) => {
+const LikeIcon = ({ type, idProduct }) => {
 
     const { likeAlbum, unlikeAlbum } = useContext(AlbumContext)
+    const { likeStory, unLikeStory } = useContext(StoryContext)
     const { likePlaylist, unlikePlaylist } = useContext(PlaylistContext)
-    const { createLibrary, deleteLibrary } = useContext(LibraryContext)
+    const { createLibrary, deleteLibrary, libraryState: { library } } = useContext(LibraryContext)
     const { likeSong, unlikeSong } = useContext(SongContext)
     const { userState: { user } } = useContext(UserContext)
+
+    let love = false
+    if (library.includes(idProduct)) {
+        love = true
+    }
 
     const handleLikeProducts = async () => {
         if (user) {
@@ -35,6 +42,12 @@ const LikeIcon = ({ type, idProduct, love }) => {
                     product: idProduct,
                     category: "SONG"
                 }
+            } else if (type === 'story') {
+                await likeStory(idProduct)
+                fromData = {
+                    product: idProduct,
+                    category: "STORY"
+                }
             }
             await createLibrary(fromData)
         }
@@ -48,6 +61,8 @@ const LikeIcon = ({ type, idProduct, love }) => {
                 await unlikePlaylist(idProduct)
             } else if (type === 'song') {
                 await unlikeSong(idProduct)
+            } else if (type === 'story') {
+                await unLikeStory(idProduct)
             }
             await deleteLibrary(idProduct)
         }

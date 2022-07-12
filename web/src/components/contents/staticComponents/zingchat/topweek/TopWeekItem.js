@@ -1,4 +1,3 @@
-import SongItemZingChat from '../listSong/SongItemZingChat'
 
 const TopWeekItem = () => {
     return (
@@ -8,11 +7,11 @@ const TopWeekItem = () => {
                 <i className="fas fa-play" />
             </div>
             <div className="list-song">
+                {/* <SongItemZingChat />
                 <SongItemZingChat />
                 <SongItemZingChat />
                 <SongItemZingChat />
-                <SongItemZingChat />
-                <SongItemZingChat />
+                <SongItemZingChat /> */}
                 <div className="show-all-topic">
                     <button type="button" className="btn-show-topic">Xem tất cả</button>
                 </div>

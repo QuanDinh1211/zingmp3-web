@@ -34,7 +34,7 @@ class SongService {
 
     handleGetAllSong = async (res) => {
         try {
-            const listSong = await Song.find({}).populate('album', ['avatar', 'author', 'name'])
+            const listSong = await Song.find({}).populate('album', ['avatar', 'author', 'name']).sort({ views: -1 })
             return listSong
         } catch (error) {
             console.log(error)

@@ -17,3 +17,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVmM
 
 ###
 GET http://localhost:5000/api/album/625f136c54e80af6fec95c68
+
+
+###
+GET http://localhost:5000/api/song/getSongName/Hẹn một mai
+
+

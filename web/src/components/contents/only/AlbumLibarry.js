@@ -24,7 +24,7 @@ const AlbumLibarry = () => {
                 if (index < 6) {
                     return (
                         <div key={index} className="col-2">
-                            <AlbumItem name={name} idAlbum={_id} avatar={avatar} like author={author} />
+                            <AlbumItem name={name} idAlbum={_id} avatar={avatar} author={author} />
                         </div>
                     )
                 }

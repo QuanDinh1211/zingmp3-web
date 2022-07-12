@@ -5,7 +5,7 @@ import { SongContext } from '../../../../store/contexts/songContext'
 
 import LikeIcon from '../../../../utils/actitonLikeProduct'
 
-const PlaylistLeft = ({ name, avatar, likes, author, updatedAt, album, love, user, id, userId }) => {
+const PlaylistLeft = ({ name, avatar, likes, author, updatedAt, album, user, id, userId }) => {
 
     const { setShowAddSongModal } = useContext(SongContext)
 
@@ -44,8 +44,8 @@ const PlaylistLeft = ({ name, avatar, likes, author, updatedAt, album, love, use
                 }
                 <div className="like-action">
                     {
-                        album ? <LikeIcon type='album' idProduct={id} love={love} />
-                            : <LikeIcon type='playlist' idProduct={id} love={love} />
+                        album ? <LikeIcon type='album' idProduct={id} />
+                            : <LikeIcon type='playlist' idProduct={id} />
                     }
                     <i className="fas fa-ellipsis-h" />
                 </div>

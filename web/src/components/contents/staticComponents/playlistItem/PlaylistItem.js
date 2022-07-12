@@ -6,7 +6,7 @@ import { PlaylistContext } from '../../../../store/contexts/playlistContext'
 import LikeIcon from '../../../../utils/actitonLikeProduct'
 
 
-const PlaylistItem = ({ name, avatar, author, idPlaylist, like }) => {
+const PlaylistItem = ({ name, avatar, author, idPlaylist }) => {
 
     let navigate = useNavigate()
 
@@ -25,7 +25,7 @@ const PlaylistItem = ({ name, avatar, author, idPlaylist, like }) => {
             <div className="avatar">
                 <img src={`${urlimg}/${avatar}`} alt='' />
                 <div className="hover-avatar">
-                    <LikeIcon type='playlist' idProduct={idPlaylist} love={like} />
+                    <LikeIcon type='playlist' idProduct={idPlaylist} />
                     <i className="play far fa-play-circle" onClick={handleClickPlaylistItem} />
                     <i className="fas fa-ellipsis-h" />
                 </div>

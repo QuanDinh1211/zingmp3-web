@@ -18,7 +18,7 @@ const ListStory = ({ listStory }) => {
                 }
                 console.log(loveUser)
 
-                return <StoryItem key={_id} description={description} loveUser={loveUser} content={content} likes={likes} createdAt={createdAt} user={user} />
+                return <StoryItem key={_id} id={_id} description={description} loveUser={loveUser} content={content} likes={likes} createdAt={createdAt} user={user} />
             })}
         </div>
     )

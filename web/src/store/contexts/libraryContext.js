@@ -10,6 +10,7 @@ import {
     ADD_LIBRARYALBUM,
     ADD_LIBRARYSONG,
     ADD_LIBRARYPLAYLIST,
+    ADD_LIBRARYSTORY,
     CREATE_LIBRARYPLAYLIST,
     DELETE_LIBRARY,
     ADD_LIBRARYAUTHOR,
@@ -17,10 +18,12 @@ import {
     ADD_LIBRARYITEMSONG,
     ADD_LIBRARYITEMPLAYLIST,
     ADD_LIBRARYITEMAUTHOR,
+    ADD_LIBRARYITEMSTORY,
     DELETE_LIBRARYSONG,
     DELETE_LIBRARYALBUM,
     DELETE_LIBRARYPLAYLIST,
-    DELETE_LIBRARYAUTHOR
+    DELETE_LIBRARYAUTHOR,
+    DELETE_LIBRARYSTORY
 } from './action'
 
 export const LibraryContext = createContext()
@@ -28,6 +31,7 @@ export const LibraryContext = createContext()
 
 const LibraryContextProvider = ({ children }) => {
     const [libraryState, dispatch] = useReducer(libraryReducer, {
+        storys: [],
         authors: [],
         songs: [],
         albums: [],
@@ -96,12 +100,25 @@ const LibraryContextProvider = ({ children }) => {
         }
     }
 
+    const getLibraryStory = async () => {
+        try {
+            const response = await axios.get(`${apiurl}/library/getLibrary/story`)
+            if (response.data.success) {
+                dispatch(ADD_LIBRARYSTORY(response.data.library))
+                return response.data
+            }
+        } catch (error) {
+            return { success: false, message: error.message }
+        }
+    }
+
     useEffect(() => {
         getLibrary()
         getLibraryAlbum()
         getLibrarySong()
         getLibraryPlaylist()
         getLibraryAuthor()
+        getLibraryStory()
     }, [])
 
 
@@ -119,6 +136,8 @@ const LibraryContextProvider = ({ children }) => {
                     dispatch(ADD_LIBRARYITEMPLAYLIST(response.data.library))
                 } else if (category === 'USER') {
                     dispatch(ADD_LIBRARYITEMAUTHOR(response.data.library))
+                } else if (category === 'STORY') {
+                    dispatch(ADD_LIBRARYITEMSTORY(response.data.library))
                 }
                 return response.data
             }
@@ -142,6 +161,8 @@ const LibraryContextProvider = ({ children }) => {
                     dispatch(DELETE_LIBRARYPLAYLIST(response.data.library))
                 } else if (category === 'USER') {
                     dispatch(DELETE_LIBRARYAUTHOR(response.data.library))
+                } else if (category === 'STORY') {
+                    dispatch(DELETE_LIBRARYSTORY(response.data.library))
                 }
                 return response.data
             }

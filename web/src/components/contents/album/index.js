@@ -2,7 +2,6 @@ import { useContext } from 'react'
 
 import { AlbumContext } from '../../../store/contexts/albumContext'
 import { UserContext } from '../../../store/contexts/userContext'
-import { LibraryContext } from '../../../store/contexts/libraryContext'
 import TableSong from '../staticComponents/tableSong'
 import PlaylistLeft from '../staticComponents/renderPlaylist/PlaylistLeft'
 
@@ -11,8 +10,6 @@ const RenderAlbum = () => {
     const { albumState } = useContext(AlbumContext)
 
     const { userState } = useContext(UserContext)
-
-    const { libraryState: { library } } = useContext(LibraryContext)
 
     let userId
     if (userState.user) {
@@ -26,8 +23,7 @@ const RenderAlbum = () => {
     return (
         <div className="render-playlist-song">
             {
-                album && library.includes(_id) ? <PlaylistLeft avatar={avatar} name={name} love author={author} likes={likes} id={_id} updatedAt={updatedAt} album user={user} userId={userId} />
-                    : <PlaylistLeft avatar={avatar} name={name} author={author} likes={likes} id={_id} updatedAt={updatedAt} album user={user} userId={userId} />
+                album && <PlaylistLeft avatar={avatar} name={name} author={author} likes={likes} id={_id} updatedAt={updatedAt} album user={user} userId={userId} />
             }
             <div className="item-right">
                 <div className="description-playlist-song">

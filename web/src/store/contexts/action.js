@@ -150,6 +150,16 @@ export const ADD_LIBRARYAUTHOR = (data) => {
     }
 }
 
+export const ADD_LIBRARYSTORY = (data) => {
+    const payload = data.map((library) => {
+        return library.product
+    })
+    return {
+        type: 'library/ADD_LIBRARYSTORY',
+        payload: payload
+    }
+}
+
 export const CREATE_LIBRARYPLAYLIST = (data) => {
     return {
         type: 'library/CREATE_LIBRARYPLAYLIST',
@@ -195,6 +205,14 @@ export const ADD_LIBRARYITEMAUTHOR = (data) => {
     }
 }
 
+export const ADD_LIBRARYITEMSTORY = (data) => {
+    return {
+        type: 'library/ADD_LIBRARYITEMSTORY',
+        payload: data.product
+    }
+}
+
+
 // delete
 
 export const DELETE_LIBRARYSONG = (data) => {
@@ -218,6 +236,13 @@ export const DELETE_LIBRARYPLAYLIST = (data) => {
 export const DELETE_LIBRARYAUTHOR = (data) => {
     return {
         type: 'library/DELETE_LIBRARYAUTHOR',
+        payload: data.product
+    }
+}
+
+export const DELETE_LIBRARYSTORY = (data) => {
+    return {
+        type: 'library/DELETE_LIBRARYSTORY',
         payload: data.product
     }
 }

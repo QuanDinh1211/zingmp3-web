@@ -4,7 +4,7 @@ import { SongContext } from '../../../../store/contexts/songContext'
 import { urlimg } from '../../../../store/contexts/consts'
 import LikeIcon from '../../../../utils/actitonLikeProduct'
 
-const SongItem = ({ id, name, avatar, author, nameAlbum, love }) => {
+const SongItem = ({ id, name, avatar, author, nameAlbum }) => {
 
     const { getOneSong } = useContext(SongContext)
 
@@ -39,8 +39,7 @@ const SongItem = ({ id, name, avatar, author, nameAlbum, love }) => {
                         <i className="fas fa-microphone" />
                     </div>
                     <div className="heart-time">
-                        {/* <i className="fas fa-heart heart" /> */}
-                        <LikeIcon type='song' idProduct={id} love={love} />
+                        <LikeIcon type='song' idProduct={id} />
                         <div className="time-song">
                             <span>05:03</span>
                             <i className="dot fas fa-ellipsis-h" />

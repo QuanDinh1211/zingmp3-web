@@ -7,7 +7,7 @@ const Schema = mongoose.Schema
 const Library = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'users' },
     product: { type: String, required: true },
-    category: { type: String, enum: ['SONG', 'ALBUM', 'PLAYLIST', 'USER'] },
+    category: { type: String, enum: ['SONG', 'ALBUM', 'PLAYLIST', 'USER', 'STORY'] },
     slug: { type: String, slug: 'user', unique: true },
 }, { timestamps: true })
 

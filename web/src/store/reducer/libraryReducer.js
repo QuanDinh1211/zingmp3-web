@@ -27,6 +27,11 @@ export const libraryReducer = (state, action) => {
                 ...state,
                 authors: [...payload]
             }
+        case 'library/ADD_LIBRARYSTORY':
+            return {
+                ...state,
+                storys: [...payload]
+            }
         case 'library/ADD_LIBRARYITEMALBUM':
             return {
                 ...state,
@@ -46,6 +51,11 @@ export const libraryReducer = (state, action) => {
             return {
                 ...state,
                 authors: [...state.albums, payload]
+            }
+        case 'library/ADD_LIBRARYITEMSTORY':
+            return {
+                ...state,
+                storys: [...state.storys, payload]
             }
         case 'library/CREATE_LIBRARYPLAYLIST':
             return {
@@ -76,6 +86,11 @@ export const libraryReducer = (state, action) => {
             return {
                 ...state,
                 authors: state.authors.filter((library) => library !== payload)
+            }
+        case 'library/DELETE_LIBRARYSTORY':
+            return {
+                ...state,
+                storys: state.storys.filter((library) => library !== payload)
             }
         default:
             return state
