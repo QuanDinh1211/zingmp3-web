@@ -21,27 +21,27 @@ const UserItemCol = ({ name, followers, avatar, slug, id, love }) => {
     }
 
     return (
-        <div class="user-item">
-            <div class="avar-user">
+        <div className="user-item">
+            <div className="avar-user">
                 <img src={`${urlimg}/${avatar}`} alt="" />
-                <div class="aver-hover">
-                    <i class="fas fa-globe" onClick={handleClickAuthorItem}></i>
+                <div className="aver-hover">
+                    <i className="fas fa-globe" onClick={handleClickAuthorItem}></i>
                 </div>
             </div>
-            <div class="user-title">
+            <div className="user-title">
 
-                <span class="name">{name}</span>
+                <span className="name">{name}</span>
 
-                <span class="flow-user">
+                <span className="flow-user">
                     {followers} follow
                 </span>
                 {love ? <UnFollowUser id={id}>
-                    <button class="btn-follow-user">
+                    <button className="btn-follow-user">
                         <span>Hủy Theo Dõi</span>
                     </button>
                 </UnFollowUser>
                     : <FollowUser id={id}>
-                        <button class="btn-follow-user">
+                        <button className="btn-follow-user">
                             <span>Theo Dõi</span>
                         </button>
                     </FollowUser>}

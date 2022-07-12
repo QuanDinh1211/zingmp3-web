@@ -5,13 +5,30 @@ import { apiurl } from './consts'
 
 
 import { libraryReducer } from '../reducer/libraryReducer'
-import { ADD_LIBRARY, ADD_LIBRARYALBUM, ADD_LIBRARYSONG, ADD_LIBRARYPLAYLIST, CREATE_LIBRARYPLAYLIST, DELETE_LIBRARYPLAYLIST } from './action'
+import {
+    ADD_LIBRARY,
+    ADD_LIBRARYALBUM,
+    ADD_LIBRARYSONG,
+    ADD_LIBRARYPLAYLIST,
+    CREATE_LIBRARYPLAYLIST,
+    DELETE_LIBRARY,
+    ADD_LIBRARYAUTHOR,
+    ADD_LIBRARYITEMALBUM,
+    ADD_LIBRARYITEMSONG,
+    ADD_LIBRARYITEMPLAYLIST,
+    ADD_LIBRARYITEMAUTHOR,
+    DELETE_LIBRARYSONG,
+    DELETE_LIBRARYALBUM,
+    DELETE_LIBRARYPLAYLIST,
+    DELETE_LIBRARYAUTHOR
+} from './action'
 
 export const LibraryContext = createContext()
 
 
 const LibraryContextProvider = ({ children }) => {
     const [libraryState, dispatch] = useReducer(libraryReducer, {
+        authors: [],
         songs: [],
         albums: [],
         playlists: [],
@@ -67,11 +84,24 @@ const LibraryContextProvider = ({ children }) => {
         }
     }
 
+    const getLibraryAuthor = async () => {
+        try {
+            const response = await axios.get(`${apiurl}/library/getLibrary/author`)
+            if (response.data.success) {
+                dispatch(ADD_LIBRARYAUTHOR(response.data.library))
+                return response.data
+            }
+        } catch (error) {
+            return { success: false, message: error.message }
+        }
+    }
+
     useEffect(() => {
         getLibrary()
         getLibraryAlbum()
         getLibrarySong()
         getLibraryPlaylist()
+        getLibraryAuthor()
     }, [])
 
 
@@ -80,6 +110,16 @@ const LibraryContextProvider = ({ children }) => {
             const response = await axios.post(`${apiurl}/library/createLibrary`, formData)
             if (response.data.success) {
                 dispatch(CREATE_LIBRARYPLAYLIST(response.data.library))
+                const { category } = response.data.library
+                if (category === 'ALBUM') {
+                    dispatch(ADD_LIBRARYITEMALBUM(response.data.library))
+                } else if (category === 'SONG') {
+                    dispatch(ADD_LIBRARYITEMSONG(response.data.library))
+                } else if (category === 'PLAYLIST') {
+                    dispatch(ADD_LIBRARYITEMPLAYLIST(response.data.library))
+                } else if (category === 'USER') {
+                    dispatch(ADD_LIBRARYITEMAUTHOR(response.data.library))
+                }
                 return response.data
             }
 
@@ -92,7 +132,17 @@ const LibraryContextProvider = ({ children }) => {
         try {
             const response = await axios.delete(`${apiurl}/library/${id}`)
             if (response.data.success) {
-                dispatch(DELETE_LIBRARYPLAYLIST(response.data.library))
+                dispatch(DELETE_LIBRARY(response.data.library))
+                const { category } = response.data.library
+                if (category === 'ALBUM') {
+                    dispatch(DELETE_LIBRARYALBUM(response.data.library))
+                } else if (category === 'SONG') {
+                    dispatch(DELETE_LIBRARYSONG(response.data.library))
+                } else if (category === 'PLAYLIST') {
+                    dispatch(DELETE_LIBRARYPLAYLIST(response.data.library))
+                } else if (category === 'USER') {
+                    dispatch(DELETE_LIBRARYAUTHOR(response.data.library))
+                }
                 return response.data
             }
 

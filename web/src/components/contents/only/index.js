@@ -1,6 +1,7 @@
 import { useContext } from 'react'
+import { NavLink, Outlet } from "react-router-dom"
 
-import TableSong from '../staticComponents/tableSong'
+
 import LoginModal from '../../form/Login'
 import { UserContext } from '../../../store/contexts/userContext'
 
@@ -25,16 +26,38 @@ const Only = () => {
                     <div className="content-body-container">
                         <div className="body-library">
                             <div className="library-tabs">
-                                <span className="tabs active tab-song">BÀI HÁT</span>
-                                <span className="tabs  tab-podcast">PODCAST</span>
-                                <span className="tabs  tab-album">ALBUM</span>
-                                <span className="tabs  tab-mv">MV</span>
+                                <NavLink
+                                    to='song'
+                                    className={({ isActive }) => (isActive ? 'active' : '')}
+                                >
+                                    <span className="tabs tab-song">BÀI HÁT</span>
+                                </NavLink>
+                                <NavLink
+                                    to='playlist'
+                                    className={({ isActive }) => (isActive ? 'active' : '')}
+                                >
+                                    <span className="tabs  tab-podcast">PLAYLIST</span>
+                                </NavLink>
+                                <NavLink
+                                    to='album'
+                                    className={({ isActive }) => (isActive ? 'active' : '')}
+                                >
+                                    <span className="tabs  tab-album">ALBUM</span>
+                                </NavLink>
+                                <NavLink
+                                    to='author'
+                                    className={({ isActive }) => (isActive ? 'active' : '')}
+                                >
+                                    <span className="tabs  tab-mv">CA SĨ</span>
+                                </NavLink>
                             </div>
                             <div className="library-filter">
                                 <span className="library-like">YÊU THÍCH</span>
                                 <span className="library-upload">ĐÃ TẢI LÊN</span>
                             </div>
-                            <TableSong />
+                            <div className="mgt-20">
+                                <Outlet />
+                            </div>
                         </div>
                     </div>
                 </div>

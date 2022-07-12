@@ -53,7 +53,6 @@ const SongContextProvider = ({ children }) => {
     const getOneSong = async (songId) => {
         const response = await axios.get(`${apiurl}/song/getOneSong/${songId}`)
         if (response.data.success) {
-            console.log(response.data.song)
             dispatch(GET_SONG(response.data.song))
             return response.data
         }

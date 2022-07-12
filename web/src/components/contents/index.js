@@ -18,6 +18,10 @@ import AddPlaylistModal from '../form/AddPlaylistModal'
 import AddAlbumModal from '../form/AddAlbumModal'
 import AddSongModal from '../form/AddSongModal'
 import AddStoryModal from '../form/AddStoryModal'
+import AlbumLibarry from './only/AlbumLibarry'
+import AuthorLibrary from './only/AuthorLibrary'
+import PlaylistLibrary from './only/PlaylistLibrary'
+import SongLibrary from './only/SongLibrary'
 
 
 const Content = () => {
@@ -89,7 +93,12 @@ const Content = () => {
             </div>
             <div className="content-body">
                 <Routes>
-                    <Route exact path='/mymusic' element={<Only />} />
+                    <Route path='/mymusic' element={<Only />} >
+                        <Route path='album' element={<AlbumLibarry />} />
+                        <Route path='author' element={<AuthorLibrary />} />
+                        <Route path='playlist' element={<PlaylistLibrary />} />
+                        <Route path='song' element={<SongLibrary />} />
+                    </Route>
                     <Route exact path='/zingchat' element={<ZingChat />} />
                     <Route exact path='/radio' element={<Radio />} />
                     <Route exact path='/category' element={<Category />} />

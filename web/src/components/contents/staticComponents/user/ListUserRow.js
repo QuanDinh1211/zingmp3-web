@@ -11,19 +11,19 @@ const ListUserRow = () => {
     const { libraryState: { library } } = useContext(LibraryContext)
 
     return (
-        <div class="display-list-user row">
+        <div className="display-list-user row">
             {authors.map((author, index) => {
                 const { name, followers, avatar, slug, _id } = author
                 if (index < 6) {
                     if (library.includes(_id)) {
                         return (
-                            <div key={index} class="col-3">
+                            <div key={index} className="col-3">
                                 <UserItemCol name={name} avatar={avatar} love followers={followers} slug={slug} id={_id} />
                             </div>
                         )
                     }
                     return (
-                        <div key={index} class="col-3">
+                        <div key={index} className="col-3">
                             <UserItemCol name={name} avatar={avatar} followers={followers} slug={slug} id={_id} />
                         </div>
                     )

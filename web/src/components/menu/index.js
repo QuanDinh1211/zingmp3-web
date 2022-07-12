@@ -8,7 +8,7 @@ const Menu = () => {
 
     const listMenuItem = {
         myMusic: {
-            path: 'mymusic',
+            path: 'mymusic/song',
             classItem: 'item-personal',
             classIcon: 'far fa-user',
             nameItem: 'Cá nhân'
@@ -79,22 +79,28 @@ const Menu = () => {
 
     const listLibraryItems = {
         myMusicSong: {
-            path: 'mymusic/library/song',
+            path: 'mymusic/song',
             classItem: 'item-song',
             classIcon: 'fas fa-headphones-alt',
             nameItem: 'Bài hát'
         },
         myMusicPlaylist: {
-            path: 'mymusic/library/playlist',
+            path: 'mymusic/playlist',
             classItem: 'item-playlist',
             classIcon: 'fas fa-layer-group',
             nameItem: 'Playlist'
         },
-        myMusicHistory: {
+        myMusicAlbym: {
             path: 'mymusic/album',
             classItem: 'item-album',
             classIcon: 'fas fa-compact-disc',
             nameItem: 'Album'
+        },
+        myMusicAuthor: {
+            path: 'mymusic/author',
+            classItem: 'item-album',
+            classIcon: 'fas fa-user-check',
+            nameItem: 'Ca sĩ'
         },
     }
 
@@ -112,7 +118,7 @@ const Menu = () => {
                     <img alt='' src={require("../../acsess/img/logo.png")} />
                 </div>
                 <div className="menu-list-items">
-                    <MenuItem classItem='item-personal' path='mymusic' classIcon='far fa-user' nameItem='Cá nhân' onClick={handleClickMyMusic} />
+                    <MenuItem classItem='item-personal' path='mymusic/song' classIcon='far fa-user' nameItem='Cá nhân' onClick={handleClickMyMusic} />
                     {Object.values(listMenuItem).map((menuItem, index) => {
                         const { path, classItem, classIcon, nameItem } = menuItem
                         return index !== 0 && <MenuItem classItem={classItem} key={index} path={path} classIcon={classIcon} nameItem={nameItem} />
