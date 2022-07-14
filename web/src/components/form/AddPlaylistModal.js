@@ -1,6 +1,7 @@
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
+import RenderAuthorSearch from '../contents/staticComponents/renderSeach/RenderAuthorSearch'
 
 import { useState, useContext, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -45,7 +46,6 @@ const AddPlaylistModal = () => {
 
     const handleAddPlaylistForm = async (event) => {
         event.preventDefault()
-        console.log(formDataPlaylist);
 
         try {
             const playlistData = await createPlaylist(formDataPlaylist)
@@ -58,8 +58,30 @@ const AddPlaylistModal = () => {
         }
     }
 
+    const [showHistory, setShowHistory] = useState(false)
+
+    const handleOnclikInputAuthor = (event) => {
+        let result = event.target.closest('.header__seach-history--item')
+        console.log('result', result);
+        if (result) {
+            event.stopPropagation()
+            setShowHistory(false)
+        }
+    }
+
+    const handleOnclikFrom = (event) => {
+        let result = event.target.closest('.showhistory')
+        if (result) {
+            setShowHistory(true)
+        } else {
+            setShowHistory(false)
+        }
+    }
+
+
+
     return (
-        <Modal show={showAddPlaylistModal} onHide={closeDialog}>
+        <Modal show={showAddPlaylistModal} onHide={closeDialog} onClick={handleOnclikFrom}>
             <Modal.Header >
                 <Modal.Title>Thêm mới Playlist</Modal.Title>
             </Modal.Header>
@@ -79,8 +101,9 @@ const AddPlaylistModal = () => {
                             <input onChange={onChangefile} type="file" name="avatar" className="form-control" placeholder="Enter file" />
                         </div>
                     </form>
-                    <Form.Group>
-                        <Form.Control onChange={onChangePostForm} type="text" placeholder='author Playlist' value={author} name="author" className='mt-16' />
+                    <Form.Group className='position-relative showhistory' onClick={handleOnclikInputAuthor}>
+                        <Form.Control onChange={onChangePostForm} autoComplete="off" type="text" placeholder='author Playlist' value={author} name="author" className='mt-16' />
+                        {showHistory && <RenderAuthorSearch setDataInput={setFormDataPlaylist} dataInput={formDataPlaylist} />}
                         <Form.Text muted></Form.Text>
                     </Form.Group>
 

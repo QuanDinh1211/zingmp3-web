@@ -1,6 +1,6 @@
 const SongService = require('../services/songService')
 
-const { hanleCreateSong, handleGetAllSong, handleGetOneSong, hanleDeleteSong, handleUplikeSong, handleUpdateSong } = SongService
+const { hanleCreateSong, handleGetAllSong, handleGetOneSong, hanleDeleteSong, handleUplikeSong, handleUpdatePlaylistSong } = SongService
 
 
 class SongController {
@@ -139,20 +139,16 @@ class SongController {
     }
 
 
-    UpdateSong = async (req, res) => {
+    UpdateSongApi = async (req, res) => {
         const songId = req.params.songId
-        const mp3 = req.file.originalname
-        const { name, playlist, album } = req.body
+        const { playlist } = req.body
 
 
         const formdata = {
-            name,
-            album,
-            playlist,
-            mp3
+            playlist
         }
 
-        const song = await handleUpdateSong(songId, formdata, res)
+        const song = await handleUpdatePlaylistSong(songId, formdata, res)
         if (song) {
             return res.json({
                 success: true,

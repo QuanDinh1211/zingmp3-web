@@ -31,7 +31,7 @@ class PlaylistController {
         const userId = req.userId
         const { name, description, author, avatar } = req.body
 
-        const authorList = author.split(',')
+        const authorList = author.split(', ')
 
         const formdata = {
             name,

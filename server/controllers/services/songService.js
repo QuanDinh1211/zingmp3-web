@@ -114,6 +114,22 @@ class SongService {
         }
     }
 
+    handleUpdatePlaylistSong = async (songId, formdata, res) => {
+
+        try {
+            const songUpdate = await Song.findOneAndUpdate({ _id: songId }, formdata, { new: true })
+            if (!songUpdate) {
+                return res.status(401).json({ success: false, message: 'Song not found' })
+            }
+
+            return songUpdate
+
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({ success: false, message: 'Internal server error' })
+        }
+    }
+
 }
 
 module.exports = new SongService

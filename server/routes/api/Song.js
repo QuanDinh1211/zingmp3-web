@@ -1,11 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
-const uploadMp3 = require('../upload/mp3Upload')
 const SongController = require('../../controllers/apiControllers/songContrllers')
 const verifyTocken = require('../../middleware/verifyTocken')
 
-const { getSong, getOneSong, getSongAlbum, getSongPlaylist, createSong, getSongName, deleteSong, likeSong, unLikeSong, UpdateSong } = SongController
+const { getSong, getOneSong, getSongAlbum, getSongPlaylist, createSong, getSongName, deleteSong, likeSong, unLikeSong, UpdateSongApi } = SongController
 
 router.get('/getSong', getSong)
 router.get('/getOneSong/:songId', getOneSong)
@@ -16,7 +15,7 @@ router.post('/createSong', verifyTocken, createSong)
 router.delete('/:songId', verifyTocken, deleteSong)
 router.get('/likes/:songId', verifyTocken, likeSong)
 router.get('/unlikes/:songId', verifyTocken, unLikeSong)
-router.put('/update/:songId', verifyTocken, uploadMp3.single('mp3'), UpdateSong)
+router.put('/update/:songId', verifyTocken, UpdateSongApi)
 
 
 module.exports = router

@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form'
 import { useState, useContext, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AlbumContext } from '../../store/contexts/albumContext'
+import RenderAuthorSearch from '../contents/staticComponents/renderSeach/RenderAuthorSearch'
 
 const AddAlbumModal = () => {
 
@@ -58,8 +59,28 @@ const AddAlbumModal = () => {
         }
     }
 
+    const [showHistory, setShowHistory] = useState(false)
+
+    const handleOnclikInputAuthor = (event) => {
+        let result = event.target.closest('.header__seach-history--item')
+        console.log('result', result);
+        if (result) {
+            event.stopPropagation()
+            setShowHistory(false)
+        }
+    }
+
+    const handleOnclikFrom = (event) => {
+        let result = event.target.closest('.showhistory')
+        if (result) {
+            setShowHistory(true)
+        } else {
+            setShowHistory(false)
+        }
+    }
+
     return (
-        <Modal show={showAddAlbumModal} onHide={closeDialog}>
+        <Modal show={showAddAlbumModal} onHide={closeDialog} onClick={handleOnclikFrom}>
             <Modal.Header >
                 <Modal.Title>Thêm mới Album</Modal.Title>
             </Modal.Header>
@@ -75,12 +96,13 @@ const AddAlbumModal = () => {
                         <Form.Text muted></Form.Text>
                     </Form.Group>
                     <form ref={formUpload} onSubmit={handleSubmitAvar} action='http://localhost:5000/api/upload/avatar' method='post' encType="multipart/form-data">
-                        <div class="form-group">
+                        <div className="form-group">
                             <input onChange={onChangefile} type="file" name="avatar" className="form-control" placeholder="Enter file" />
                         </div>
                     </form>
-                    <Form.Group>
-                        <Form.Control onChange={onChangePostForm} type="text" placeholder='author Album' value={author} name="author" className='mt-16' />
+                    <Form.Group className='position-relative showhistory' onClick={handleOnclikInputAuthor}>
+                        <Form.Control onChange={onChangePostForm} autoComplete="off" type="text" placeholder='author Album' value={author} name="author" className='mt-16' />
+                        {showHistory && <RenderAuthorSearch setDataInput={setFormDataAlbum} dataInput={formDataAlbum} />}
                         <Form.Text muted></Form.Text>
                     </Form.Group>
 

@@ -1,6 +1,12 @@
 
 export const seachName = (list, name) => {
-    list.filter(item => {
-
+    const result = []
+    list.map(item => {
+        if (name && item.name.toLowerCase().indexOf(name.toLowerCase()) !== -1) {
+            result.push(item)
+        }
+        return null
     })
+
+    return result
 }

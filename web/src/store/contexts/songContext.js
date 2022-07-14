@@ -58,6 +58,18 @@ const SongContextProvider = ({ children }) => {
         }
     }
 
+    const updatePlaylistSong = async (songId, formData) => {
+        try {
+            const response = await axios.put(`${apiurl}/song/update/${songId}`, formData)
+            if (response.data.success) {
+                await getSong()
+                return response.data
+            }
+        } catch (error) {
+            return { success: false, message: error.message }
+        }
+    }
+
     // action
 
     const likeSong = async (idSong) => {
@@ -101,7 +113,7 @@ const SongContextProvider = ({ children }) => {
         }
     }
 
-    const songContextData = { songState, showAddSongModal, setShowAddSongModal, createSong, getOneSong, songPlay, setSongPlay, likeSong, unlikeSong, uploadMp3 }
+    const songContextData = { songState, showAddSongModal, setShowAddSongModal, createSong, getOneSong, songPlay, setSongPlay, likeSong, unlikeSong, uploadMp3, updatePlaylistSong }
 
     return (
         <SongContext.Provider value={songContextData}>
