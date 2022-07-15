@@ -1,15 +1,31 @@
 import { useContext, useState } from 'react'
+import { Link, useNavigate } from "react-router-dom"
+
 
 import { SongContext } from '../../../../store/contexts/songContext'
 import { PlaylistContext } from '../../../../store/contexts/playlistContext'
+import { AlbumContext } from '../../../../store/contexts/albumContext'
 import { urlimg } from '../../../../store/contexts/consts'
 import { seachName } from '../../../../utils/seachAction'
 import LikeIcon from '../../../../utils/actitonLikeProduct'
+import AuthorProuctItem from '../user/AuthorProuctItem'
 
-const SongItem = ({ id, name, avatar, author, nameAlbum }) => {
+const SongItem = ({ id, name, avatar, author, nameAlbum, idAlbum }) => {
 
     const { getOneSong, updatePlaylistSong } = useContext(SongContext)
     const { playlistState: { playlists } } = useContext(PlaylistContext)
+
+    const { setAlbum } = useContext(AlbumContext)
+
+    let navigate = useNavigate()
+
+    const handleOnclickNameAlbum = async () => {
+        let result = await setAlbum(idAlbum)
+        if (result.success) {
+            navigate(`/album/${idAlbum}`, { replace: true })
+        }
+    }
+
 
     const handleCilckPlaySong = async () => {
         await getOneSong(id)
@@ -79,13 +95,13 @@ const SongItem = ({ id, name, avatar, author, nameAlbum }) => {
                     <span className="name">{name}</span>
                     <span>
                         {author.map((author, index) => {
-                            return <a href key={index}>{author} </a>
+                            return <AuthorProuctItem key={index} author={author} />
                         })}
                     </span>
 
                 </div>
             </td>
-            <td className="song-album"><span>{nameAlbum}</span></td>
+            <td className="song-album"><span onClick={handleOnclickNameAlbum}><Link to>{nameAlbum}</Link></span></td>
             <td className="song-actions">
                 <div className="status-song">
                     <div className="mic-song">

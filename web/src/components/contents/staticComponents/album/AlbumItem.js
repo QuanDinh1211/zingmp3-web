@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { urlimg } from '../../../../store/contexts/consts'
 import { AlbumContext } from '../../../../store/contexts/albumContext'
 import LikeIcon from '../../../../utils/actitonLikeProduct'
+import AuthorProuctItem from '../user/AuthorProuctItem'
 
 const AlbumItem = ({ name, avatar, author, idAlbum }) => {
 
@@ -33,7 +34,7 @@ const AlbumItem = ({ name, avatar, author, idAlbum }) => {
                 <span className="name">{name}</span>
                 <span>
                     {author.map((author, index) => {
-                        return <a key={index} href>{author}</a>
+                        return <AuthorProuctItem key={index} author={author} />
                     })}
                 </span>
 

@@ -16,7 +16,7 @@ const TableSong = ({ songs }) => {
                 {songs && songs.map((song, index) => {
                     const { _id, name, album } = song
                     const { author, avatar } = album
-                    return <SongItem key={index} id={_id} name={name} author={author} avatar={avatar} nameAlbum={album.name} />
+                    return <SongItem key={index} id={_id} name={name} author={author} avatar={avatar} idAlbum={album._id} nameAlbum={album.name} />
                 })}
             </tbody>
         </table>

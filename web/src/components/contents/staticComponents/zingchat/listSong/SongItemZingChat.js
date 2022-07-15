@@ -1,15 +1,24 @@
 import { useContext, useState } from 'react'
+import { Link, useNavigate } from "react-router-dom"
+
 
 import { urlimg } from '../../../../../store/contexts/consts'
 import LikeIcon from '../../../../../utils/actitonLikeProduct'
 import { SongContext } from '../../../../../store/contexts/songContext'
 import { seachName } from '../../../../../utils/seachAction'
 import { PlaylistContext } from '../../../../../store/contexts/playlistContext'
+import { AlbumContext } from '../../../../../store/contexts/albumContext'
+import AuthorProuctItem from '../../user/AuthorProuctItem'
 
 const SongItemZingChat = ({ song, index, nameAlbum }) => {
 
     const { getOneSong, updatePlaylistSong } = useContext(SongContext)
     const { playlistState: { playlists } } = useContext(PlaylistContext)
+
+    const { setAlbum } = useContext(AlbumContext)
+
+    let navigate = useNavigate()
+
 
     let { _id, name, album } = song
     const { author, avatar } = album
@@ -17,6 +26,13 @@ const SongItemZingChat = ({ song, index, nameAlbum }) => {
     const handleCilckPlaySong = async () => {
         await getOneSong(_id)
 
+    }
+
+    const handleOnclickNameAlbum = async () => {
+        let result = await setAlbum(album._id)
+        if (result.success) {
+            navigate(`/album/${album._id}`, { replace: true })
+        }
     }
 
 
@@ -82,13 +98,13 @@ const SongItemZingChat = ({ song, index, nameAlbum }) => {
                     <span className="name">{name}</span>
                     <span>
                         {author.map((author, index) => {
-                            return <a href key={index}>{author} </a>
+                            return <AuthorProuctItem key={index} author={author} />
                         })}
                     </span>
                 </div>
             </div>
             <div className="song-right">
-                <span>{nameAlbum && album.name}</span>
+                <span onClick={handleOnclickNameAlbum}>{nameAlbum && <Link to>{album.name}</Link>}</span>
                 <div className="right-actions">
                     <span className="time">02:55</span>
                 </div>

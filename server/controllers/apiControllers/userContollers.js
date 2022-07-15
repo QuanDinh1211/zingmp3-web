@@ -45,6 +45,18 @@ class UserController {
         }
     }
 
+
+    getUserName = async (req, res) => {
+        const user = await handleGetOneUser({ name: req.params.nameUser }, res)
+        if (user) {
+            return res.json({
+                success: true,
+                message: "Get User Successfully",
+                user
+            })
+        }
+    }
+
     createNewUser = async (req, res, next) => {
         const avatar = req.file.originalname
         const data = {

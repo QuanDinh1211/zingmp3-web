@@ -49,6 +49,18 @@ const AuthorContextProvider = ({ children }) => {
         }
     }
 
+    const setAuthorName = async (name) => {
+        try {
+            const response = await axios.get(`${apiurl}/user/getUserName/${name}`)
+            if (response.data.success) {
+                dispatch(SET_AUTHOR(response.data.user))
+                return response.data
+            }
+        } catch (error) {
+            return { success: false, message: error.message }
+        }
+    }
+
     // action
 
     const followUser = async (id) => {
@@ -79,7 +91,7 @@ const AuthorContextProvider = ({ children }) => {
 
     // action
 
-    const AuthorContextData = { authorState, setAuthor, followUser, unFollowUser }
+    const AuthorContextData = { authorState, setAuthor, setAuthorName, followUser, unFollowUser }
 
     return (
         <AuthorContext.Provider value={AuthorContextData}>

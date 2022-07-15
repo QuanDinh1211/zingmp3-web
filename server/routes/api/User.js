@@ -5,9 +5,10 @@ const uploadAvatar = require('../upload/avatarUpload')
 const UserController = require('../../controllers/apiControllers/userContollers')
 const verifyTocken = require('../../middleware/verifyTocken')
 
-const { createNewUser, getUser, getUserLogin, deleteUser, updateUser, login, followUser, unFollowUser, getOneUser } = UserController
+const { createNewUser, getUser, getUserName, getUserLogin, deleteUser, updateUser, login, followUser, unFollowUser, getOneUser } = UserController
 
 router.get('/getUser', getUser)
+router.get('/getUserName/:nameUser', getUserName)
 router.post('/login', login)
 router.post('/register', uploadAvatar.single('avatar'), createNewUser)
 router.put('/update/:userId', uploadAvatar.single('avatar'), updateUser)

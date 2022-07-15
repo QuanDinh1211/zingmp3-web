@@ -2,7 +2,7 @@ import { useContext } from 'react'
 
 import { urlimg } from '../../../../store/contexts/consts'
 import { SongContext } from '../../../../store/contexts/songContext'
-
+import AuthorProuctItem from '../../staticComponents/user/AuthorProuctItem'
 import LikeIcon from '../../../../utils/actitonLikeProduct'
 
 const PlaylistLeft = ({ name, avatar, likes, author, updatedAt, album, user, id, userId }) => {
@@ -28,7 +28,7 @@ const PlaylistLeft = ({ name, avatar, likes, author, updatedAt, album, user, id,
                 <div className="list-auth-playlist">
                     <span>
                         {author.map((author, index) => {
-                            return <a key={index} href={'/'}>{author} </a>
+                            return <AuthorProuctItem key={index} author={author} />
                         })}
                     </span>
                 </div>

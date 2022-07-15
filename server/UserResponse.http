@@ -17,3 +17,8 @@ GET http://localhost:5000/api/user/follow/625f0bcb1e309dede125c3e0
 
 GET http://localhost:5000/api/user
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVmMGJjYjFlMzA5ZGVkZTEyNWMzZTAiLCJpYXQiOjE2NTA3Mzg1NTZ9.NKVvL_zCkB_HCKwP6DDUoyHmTSTAOD29QkaNLe5GSB4
+
+
+###
+
+GET http://localhost:5000/api/user/getUserName/Quan Dinh

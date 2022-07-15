@@ -2,7 +2,7 @@ import { urlimg } from '../../../../store/contexts/consts'
 import { urlcontent } from '../../../../store/contexts/consts'
 import { FollowUser, UnFollowUser } from '../../../../utils/actionFollowUser'
 import LikeIcon from '../../../../utils/actitonLikeProduct'
-
+import AuthorProuctItem from '../user/AuthorProuctItem'
 
 
 const StoryItem = ({ description, content, likes, id, user, createdAt, loveUser }) => {
@@ -34,7 +34,7 @@ const StoryItem = ({ description, content, likes, id, user, createdAt, loveUser 
                     </div>
                     <div className="name-time">
                         <div className="username">
-                            <span className="name">{name}</span>
+                            <span className="name"><AuthorProuctItem author={name} /></span>
                             <span className="dot">.</span>
                             {loveUser ? <UnFollowUser id={user._id}>
                                 <span className="flow pointer">UnFollow</span>
