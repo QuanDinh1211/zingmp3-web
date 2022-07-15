@@ -14,6 +14,9 @@ import ZingChat from './zingchat'
 import Category from './category'
 import Follow from './follow'
 import Topik from './topik'
+import NewAlbum from './newAlbum'
+import NewPlaylist from './newPlaylist'
+import Singer from './singer'
 import RenderAuthor from './author'
 import AddPlaylistModal from '../form/AddPlaylistModal'
 import AddAlbumModal from '../form/AddAlbumModal'
@@ -124,7 +127,10 @@ const Content = () => {
                     <Route exact path='/radio' element={<Radio />} />
                     <Route exact path='/category' element={<Category />} />
                     <Route exact path='/follow' element={<Follow />} />
+                    <Route exact path='/newmusic' element={<NewAlbum />} />
+                    <Route exact path='/newplaylist' element={<NewPlaylist />} />
                     <Route exact path='/topik' element={<Topik />} />
+                    <Route exact path='/singer' element={<Singer />} />
                     <Route exact path='/album/:albumId' element={<RenderAlbum />} />
                     <Route exact path='/author/:flug' element={<RenderAuthor />} />
                     <Route exact path='/playlist/:playlistId' element={<RenderPlaylist />} />

@@ -1,15 +1,13 @@
 import { useContext, useRef, useState } from 'react'
+import ReactAudioPlayer from 'react-audio-player';
 
 
 import { SongContext } from '../../store/contexts/songContext'
 import { urlimg, urlmp3 } from '../../store/contexts/consts'
-import AudioItem from './AudioItem'
 
 const Footer = () => {
-    // let mp3Song = "henmotmai.mp3"
-    // const [mp3Song, setMp3Song] = useState('hetthuongcannho.mp3')
 
-    const { songState, songPlay, setSongPlay } = useContext(SongContext)
+    const { songState } = useContext(SongContext)
 
 
     let audioElemnt = useRef()
@@ -28,27 +26,8 @@ const Footer = () => {
         songData = song
     }
     let { name, mp3, album: { author, avatar } } = songData
-    let body = <AudioItem />
-    if (mp3) {
-        body = <AudioItem mp3={mp3} />
-        // mp3Song = mp3
-        // setMp3Song(mp3)
-        // console.log('mp3Song', mp3Song);
-    }
-    const audio = document.getElementById('audio')
 
-    if (audioElemnt.current) {
-        if (songPlay) {
-            console.log('play');
-            // audio.play()
-        } else {
-            // audioElemnt.current.pause()
-            console.log('pause');
-        }
-    }
 
-    console.log('mp3', mp3);
-    // console.log('mp3Song', mp3Song);
 
     return (
         <div className="footer">
@@ -58,7 +37,7 @@ const Footer = () => {
                     <span className="name">{name}</span>
                     <span>
                         {author && author.map((author, index) => {
-                            return <a href='' key={index}>{author}</a>
+                            return <a href key={index}>{author}</a>
                         })}
                     </span>
                 </div>
@@ -82,12 +61,11 @@ const Footer = () => {
                 </div>
             </div>
             <div className="actions" />
-            {/* <audio ref={audioElemnt} id="audio" src={mp3 && `${urlmp3}/${mp3}`} /> */}
-            <audio id='audio' controls>
-                <source src={'http://localhost:5000/mp3/' + mp3} type="audio/ogg" />
-                <source src={'http://localhost:5000/mp3/' + mp3} type="audio/mpeg" />
-            </audio>
-            {/* {body} */}
+            <ReactAudioPlayer
+                src={`${urlmp3}/${mp3}`}
+                // autoPlay
+                controls
+            />
         </div>
     )
 }

@@ -55,13 +55,13 @@ const Menu = () => {
             path: 'newmusic',
             classItem: 'item-music-new',
             classIcon: 'fas fa-music',
-            nameItem: 'Nhạc mới'
+            nameItem: 'Album mới'
         },
         category: {
-            path: 'category',
+            path: 'newplaylist',
             classItem: 'item-category',
             classIcon: 'fas fa-shapes',
-            nameItem: 'Thể loại'
+            nameItem: 'Playlist mới'
         },
         topik: {
             path: 'topik',
@@ -70,10 +70,10 @@ const Menu = () => {
             nameItem: 'Top 100'
         },
         mv: {
-            path: 'mv',
+            path: 'singer',
             classItem: 'item-mv',
             classIcon: 'fas fa-tv',
-            nameItem: 'MV'
+            nameItem: 'Ca sĩ'
         },
     }
 

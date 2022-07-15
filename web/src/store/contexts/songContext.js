@@ -16,7 +16,6 @@ const SongContextProvider = ({ children }) => {
         songs: [],
     })
 
-    const [songPlay, setSongPlay] = useState(true)
 
     const [showAddSongModal, setShowAddSongModal] = useState(false)
 
@@ -113,7 +112,7 @@ const SongContextProvider = ({ children }) => {
         }
     }
 
-    const songContextData = { songState, showAddSongModal, setShowAddSongModal, createSong, getOneSong, songPlay, setSongPlay, likeSong, unlikeSong, uploadMp3, updatePlaylistSong }
+    const songContextData = { songState, showAddSongModal, setShowAddSongModal, createSong, getOneSong, likeSong, unlikeSong, uploadMp3, updatePlaylistSong }
 
     return (
         <SongContext.Provider value={songContextData}>
